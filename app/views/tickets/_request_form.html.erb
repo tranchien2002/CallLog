@@ -1,0 +1,55 @@
+        <%= form_for @ticket do |f|%>
+            <div class="col-sm-12">
+              <label>Tên công việc</label>
+              <%= f.text_field :subject, class: "form-control", id:"usr" %>
+            </div>
+            <div class="col-sm-6">
+              <br>
+              <label>Mức độ ưu tiên</label>
+              <div class="row">
+                <div class="col-xs-12">
+                  <div class="form-group">
+                    <select name="ticket[priority]", class="selectpicker form-control">
+                      <option value="2">Cao</option>
+                      <option value="1">Trung bình</option>
+                      <option value="0">Thấp</option>
+                    </select>
+                  </div>
+                </div>
+              </div>
+
+              <label>Bộ phận IT</label>
+              <div class="row">
+                <div class="col-xs-12">
+                  <div class="form-group">
+                    <select name="ticket[team]", class = "selectpicker form-control">
+                      <option value="1">DaNang-IT</option>
+                      <option value="2">Hanoi-IT</option>
+                    </select>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="col-sm-6">
+              <br>
+              <label>Ngày hết hạn</label>
+              <div class="row">
+                <div class='col-xs-12'>
+                  <div class="form-group">
+                    <div class='input-group date' id='datetimepicker1'>
+                      <input name="ticket[deadline]" type='date' class="form-control" placeholder="dd/mm/yyyy" />
+                      <span class="input-group-addon">
+                                  <span class="glyphicon glyphicon-calendar"></span>
+                              </span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <label>Người liên quan</label>
+              <input type="text" class="form-control" id="usr">
+            </div>
+
+            <%= f.submit "Gửi yêu cầu" %>
+        <% end %>
