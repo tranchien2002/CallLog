@@ -32,7 +32,7 @@ class TicketsController < ApplicationController
 
   def index
     @tickets = Ticket.all
-    @ticket = Ticket.find(params[:id])
+
   end
 
   private
