@@ -1,6 +1,5 @@
 <div class="login-page">
   <div class="form">
-
     <%= form_for :session, url: login_path,html: {class: "login-form"}  do |f|  %>
         <%= f.text_field :email, placeholder: "email" %>
         <%= f.password_field :password, placeholder: "password" %>
@@ -9,13 +8,5 @@
 
         <p class="message">Not registered? <a href="#">Create an account</a></p>
     <% end %>
-
-
-
-
-
-
-
-
   </div>
 </div>

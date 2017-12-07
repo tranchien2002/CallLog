@@ -4,6 +4,7 @@ class TicketsController < ApplicationController
   end
 
   def create
+
     if logged_in?
       @ticket = Ticket.new(ticket_params)
       @ticket.team_id = params[:ticket][:team]
@@ -27,12 +28,24 @@ class TicketsController < ApplicationController
   end
 
   def update
+    if logged_in?
+      @ticket = Ticket.find(params[:id])
+      if @ticket.update_attributes(ticket_params)
+        redirect_to tickets_url
+      else
+
+      end
+    else
+      redirect_to login_path
+    end
 
   end
 
   def index
     @tickets = Ticket.all
-
+    render json: {
+       ticket: @tickets
+    }
   end
 
   private

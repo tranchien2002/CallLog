@@ -1,0 +1,81 @@
+<div class="container-fluid">
+  <div class="row content">
+    <div class="col-sm-3 sidenav">
+
+      <div>
+        <button type="button" class="btn btn-danger">
+
+          <a id="nutthemyeucau" href="#requestModal" data-toggle="modal">
+            + Thêm việc yêu cầu
+          </a>
+        </button>
+      </div>
+      <br>
+      <div class="panel-group" id="accordion">
+
+        <!--công việc yêu cầu  -->
+        <div class="panel panel-default">
+          <div class="panel-heading">
+            <h4 class="panel-title">
+              <a data-toggle="collapse" data-parent="#accordion" href="#collapse1">
+                Việc tôi yêu cầu
+              </a>
+            </h4>
+          </div>
+          <div id="collapse1" class="panel-collapse collapse in">
+            <div class="panel-body">
+              <a href="congviectoiyeucau.html">All</a>
+            </div>
+            <div class="panel-body">New</div>
+            <div class="panel-body">Inprogress</div>
+            <div class="panel-body">Resolved</div>
+            <div class="panel-body">Out Of Date</div>
+          </div>
+        </div>
+
+        <!-- công việc liên quan -->
+        <div class="panel panel-default">
+          <div class="panel-heading">
+            <h4 class="panel-title">
+              <a data-toggle="collapse" data-parent="#accordion" href="#collapse2">
+                Công việc liên quan
+              </a>
+            </h4>
+          </div>
+          <div id="collapse2" class="panel-collapse collapse">
+            <div id="collapse1" class="panel-collapse collapse in">
+              <div class="panel-body">All</div>
+              <div class="panel-body">New</div>
+              <div class="panel-body">Inprogress</div>
+              <div class="panel-body">Resolved</div>
+              <div class="panel-body">Out Of Date</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="panel panel-default">
+          <div class="panel-heading">
+            <h4 class="panel-title">
+              <a data-toggle="collapse" data-parent="#accordion" href="#collapse3">
+                Việc tôi được giao
+              </a>
+            </h4>
+          </div>
+          <div id="collapse3" class="panel-collapse collapse">
+            <div id="collapse1" class="panel-collapse collapse in">
+              <div class="panel-body">All</div>
+              <div class="panel-body">New</div>
+              <div class="panel-body">Inprogress</div>
+              <div class="panel-body">Resolved</div>
+              <div class="panel-body">Out Of Date</div>
+            </div>
+          </div>
+        </div>
+
+
+      </div>
+    </div>
+  </div>
+</div>
+
+<%= render "shared/request_form" %>

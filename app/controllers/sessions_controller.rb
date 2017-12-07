@@ -1,7 +1,10 @@
 class SessionsController < ApplicationController
 
     def new
-        @user = User.new
+      # if logged_in?
+      #   redirect_to tickets_url
+      # end
+      #   @user = User.new
 
     end
 
@@ -9,10 +12,15 @@ class SessionsController < ApplicationController
     def create
       login_user = User.find_by(email: params[:session][:email].downcase)
       if login_user && login_user.authenticate(params[:session][:password])
-        flash[:success] = "asdf"
         log_in(login_user)
         remember login_user
-        redirect_to login_user
+        if(login_user.role == 1)
+          redirect_to home_user_url
+        elsif(login_user.role == 2)
+          redirect_to home_staff_url
+        else
+          redirect_to home_lead_url
+        end
       else
         flash[:danger] = "danger"
         render :new

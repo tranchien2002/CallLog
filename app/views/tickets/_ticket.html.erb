@@ -1,5 +1,6 @@
 <li>
   <%= link_to ticket.subject%>
-  <a type="button" class="btn btn-primary" href="#requestModal" data-toggle="modal">request</a>
-  <%= render "tickets/edit", ticket: ticket %>
+  <a type="button" class="btn btn-primary" href="#requestModal<%= ticket.id %>" data-toggle="modal">request</a>
+
 </li>
+<%= render "tickets/edit", ticket: ticket %>
