@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
 
-  
+
 
   root "sessions#new"
   get "/login", to: "sessions#new"
@@ -12,6 +12,7 @@ Rails.application.routes.draw do
   resources :tickets
   resources :users
 
+  post 'auth/login', to: 'authentication#authenticate'
 #   home for user
   get "user_new_request", to: "user_homes#new_request"
   get "user_inprogress_request", to: "user_homes#inprogress_request"

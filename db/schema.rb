@@ -48,6 +48,7 @@ ActiveRecord::Schema.define(version: 20171129075641) do
     t.integer "team_id"
     t.string "password_digest"
     t.string "remember_digest"
+    t.string "auth_token"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["email"], name: "index_users_on_email", unique: true
