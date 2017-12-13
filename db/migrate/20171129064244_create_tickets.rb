@@ -7,7 +7,6 @@ class CreateTickets < ActiveRecord::Migration[5.1]
       t.date :deadline
       t.integer :assign_to
       t.integer :requester
-      # t.references :team
       t.integer :team_id
 
       t.timestamps

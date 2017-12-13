@@ -1,5 +1,5 @@
 class SessionsController < ApplicationController
-    skip_before_action :authorize_request, only: :new
+    # skip_before_action :authorize_request, only: [:new, :create]
 
     def new
       # if logged_in?
@@ -16,6 +16,9 @@ class SessionsController < ApplicationController
         log_in(login_user)
         remember login_user
         if(login_user.role == 1)
+          render json: {
+              auth: params[:authencity_token]
+          }
           redirect_to home_user_url
         elsif(login_user.role == 2)
           redirect_to home_staff_url

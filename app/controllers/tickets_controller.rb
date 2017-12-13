@@ -1,4 +1,5 @@
 class TicketsController < ApplicationController
+  
   def new
     @ticket = Ticket.new
   end
@@ -43,6 +44,9 @@ class TicketsController < ApplicationController
 
   def index
     @tickets = Ticket.all
+    # @tickets.each do |t|
+    #   t.name = t.Ticket.find(t.id).subject
+    # end
     render json: {
        ticket: @tickets
     }

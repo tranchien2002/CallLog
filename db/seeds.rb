@@ -23,7 +23,7 @@ end
   assign_to = rand(3...33)
   requester = rand(33...63)
   priority = rand(1...4)
-  deadline = (Date.today + rand(-6...11).days).to_s
+  deadline = (Date.today + rand(-6.aff..11).days).to_s
   Ticket.create!(subject: subject, team_id: team_id, assign_to: assign_to, requester: requester, priority: priority,deadline: deadline)
 end
 

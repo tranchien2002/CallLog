@@ -1,9 +1,9 @@
 class CreateRelations < ActiveRecord::Migration[5.1]
   def change
     create_table :relations do |t|
-      t.references :ticket, foreign_key: true
-      t.references :user, foreign_key: true
-      t.integer :type
+      t.integer :ticket_id
+      t.integer :user_id
+
 
       t.timestamps
     end

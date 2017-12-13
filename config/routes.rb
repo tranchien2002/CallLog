@@ -13,7 +13,7 @@ Rails.application.routes.draw do
   resources :users
 
   post 'auth/login', to: 'authentication#authenticate'
-#   home for user
+  # home for user
   get "user_new_request", to: "user_homes#new_request"
   get "user_inprogress_request", to: "user_homes#inprogress_request"
   get "user_out_request", to: "user_homes#out_request"
