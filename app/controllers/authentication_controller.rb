@@ -3,12 +3,13 @@ class AuthenticationController < ApplicationController
   skip_before_action :authorize_request, only: :authenticate
   def authenticate
     auth_token =
-        AuthenticateUser.new(auth_params[:email], auth_params[:password]).call
+        AuthenticateUser.new(params[:session][:email], params[:session][:password]).call
     hash_authen = {
         status: true,
         data: {
             token: auth_token
-        }
+        },
+        role: User.find_by_email(params[:session][:email]).role
     }
     render json: (hash_authen)
   end

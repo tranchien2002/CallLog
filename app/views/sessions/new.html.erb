@@ -1,6 +1,6 @@
 <div class="login-page">
   <div class="form">
-    <%= form_for :session, url: auth_login_path,html: {class: "login-form"}  do |f|  %>
+    <%= form_for :session, url: auth_login_url,html: {class: "login-form"}  do |f|  %>
         <%= f.text_field :email, placeholder: "email" %>
         <%= f.password_field :password, placeholder: "password" %>
 

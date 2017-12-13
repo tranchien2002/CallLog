@@ -4,7 +4,6 @@ class CreateUsers < ActiveRecord::Migration[5.1]
       t.string :name
       t.string :email
       t.integer :role
-      # t.references :team, foreign_key: {on_delete: :cascade}
       t.integer :team_id
 
       t.string :password_digest

@@ -15,12 +15,9 @@ ActiveRecord::Schema.define(version: 20171129075641) do
   create_table "relations", force: :cascade do |t|
     t.integer "ticket_id"
     t.integer "user_id"
-    t.integer "type"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["ticket_id", "user_id"], name: "index_relations_on_ticket_id_and_user_id"
-    t.index ["ticket_id"], name: "index_relations_on_ticket_id"
-    t.index ["user_id"], name: "index_relations_on_user_id"
   end
 
   create_table "teams", force: :cascade do |t|

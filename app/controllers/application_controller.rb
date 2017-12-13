@@ -3,10 +3,10 @@ class ApplicationController < ActionController::Base
   include SessionsHelper
   include Response
   include ExceptionHandler
-  include ActionController::Serialization
+  # include ActionController::Serialization
 
   # called before every action on controllers
-  # before_action :authorize_request
+  before_action :authorize_request
   attr_reader :current_user
 
   private
