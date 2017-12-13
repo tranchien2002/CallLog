@@ -9,6 +9,7 @@ class CreateTickets < ActiveRecord::Migration[5.1]
       t.integer :requester
       t.integer :team_id
 
+
       t.timestamps
     end
   end

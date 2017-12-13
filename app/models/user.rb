@@ -10,8 +10,9 @@ class User < ApplicationRecord
     has_many :works, class_name: "Ticket", foreign_key: "assign_to", dependent: :destroy
     has_many :requests, class_name: "Ticket",foreign_key: "requester",dependent: :destroy
     has_many :relations,foreign_key: :user_id
-    has_many :tickets,through: :relation
-
+    has_many :tickets,through: :relations
+    has_many :comments, foreign_key: "user_id",dependent: :destroy
+    belongs_to :team,foreign_key: :team_id,optional: :true
 
     def self.digest(string)
         cost = ActiveModel::SecurePassword.min_cost ? BCrypt::Engine::MIN_COST :
@@ -37,5 +38,9 @@ class User < ApplicationRecord
 
     def forget
       update_attribute(:remember_digest, nil)
+    end
+
+    def text
+      name
     end
 end
