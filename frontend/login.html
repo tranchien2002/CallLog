@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>CallogIT</title>
+  <link rel="stylesheet" href="assets/css/logincss.css">
+  <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css">
+  <link rel="stylesheet" href="assets/font-awesome/css/font-awesome.min.css">
+  <link rel="stylesheet" href="assets/css/form-elements.css">
+  <link rel="stylesheet" href="assets/css/style.css">
+
+  <link rel="shortcut icon" href="img/favicon.png">
+
+  <link rel="apple-touch-icon-precomposed" sizes="144x144" href="assets/ico/apple-touch-icon-144-precomposed.png">
+  <link rel="apple-touch-icon-precomposed" sizes="114x114" href="assets/ico/apple-touch-icon-114-precomposed.png">
+  <link rel="apple-touch-icon-precomposed" sizes="72x72" href="assets/ico/apple-touch-icon-72-precomposed.png">
+  <link rel="apple-touch-icon-precomposed" href="assets/ico/apple-touch-icon-57-precomposed.png">
+
+</head>
+
+<body>
+
+  <!-- Top content -->
+  <div class="top-content">
+
+    <div class="inner-bg">
+      <div class="container">
+        <div class="row">
+          <div class="col-sm-8 col-sm-offset-2 text">
+            <h1><strong>CallogIT</strong></h1>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-sm-6 col-sm-offset-3 form-box">
+            <div class="form-top">
+
+            </div>
+            <div class="form-bottom">
+              <form role="form" action="" method="post" class="login-form" id="target">
+                <div class="form-group">
+                  <label class="sr-only" for="form-username">Username</label>
+                  <input type="text" name="session[email]" placeholder="Email..." class="form-username form-control" id="inputEmail" required autofocus>
+                </div>
+                <div class="form-group">
+                  <label class="sr-only" for="form-password">Password</label>
+                  <input type="password" name="session[password]" placeholder="Mật khẩu..." class="form-password form-control" id="inputPassword" required>
+
+
+                </div>
+                <button type="submit" class="btn">Đăng nhập</button>
+              </form>
+              <div role="alert" id="flash">
+
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+  </div>
+
+
+  <!-- Javascript -->
+  <script src="assets/js/jquery-1.11.1.min.js"></script>
+  <script src="assets/bootstrap/js/bootstrap.min.js"></script>
+  <script src="assets/js/jquery.backstretch.min.js"></script>
+  <script src="assets/js/scripts.js"></script>
+
+
+  <script src="js/formlogin.js"></script>
+
+  <script>
+    $(document).ready(function() {
+      // bind form using ajaxForm
+      $('#target').ajaxForm({
+        url: 'http://localhost:3000/auth/login',
+        // dataType identifies the expected content type of the server response
+        dataType: 'json',
+        method: 'POST',
+        // success identifies the function to invoke when the server response
+        // has been received
+        success: processSuccess,
+        error: processError
+      });
+    });
+
+    function processSuccess(response) {
+      // 'data' is the json object returned from the server
+      sessionStorage.token = response.data.token;
+      sessionStorage.role = response.role;
+      console.log(response);
+      $("#flash")
+        .addClass("alert alert-success text-center")
+        .text("Đăng nhập thành công. Đang điều hướng...")
+        .fadeOut(3000);
+      setTimeout(function() {
+        window.location.assign('./index.html'
+        );
+      }, 1000);
+
+    }
+
+    function processError(jqXHR) {
+      $("#flash")
+        .addClass("alert alert-danger text-center")
+        .text("Bạn đã nhập sai mật khẩu hoặc tài khoản. Vui lòng đăng nhập lại")
+        .fadeOut(3000);
+      setTimeout(function() {
+        location.reload()
+      }, 1000);
+    }
+  </script>
+
+</body>
+
+</html>

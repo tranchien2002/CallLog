@@ -1,0 +1,244 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <title>CallogIT</title>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css" integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb" crossorigin="anonymous"> -->
+    <link rel="stylesheet" href="css/bootstrap01.css">
+
+
+
+    <!-- Scrollbar Custom CSS -->
+    <!--<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/malihu-custom-scrollbar-plugin/3.1.5/jquery.mCustomScrollbar.min.css">-->
+    <!-- Custom styles for this template -->
+    <!-- <link rel="stylesheet" href="https://cdn.datatables.net/1.10.16/css/dataTables.bootstrap4.min.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.6-rc.0/css/select2.min.css" rel="stylesheet" /> -->
+    <link rel="stylesheet" href="css/bootstrap02.css">
+    <link href="css/bootstrap03.css" rel="stylesheet" />
+
+
+    <link href="css/simpleSidebar.css" rel="stylesheet">
+    <link href="css/custom.css" rel="stylesheet">
+    <link rel="shortcut icon" href="img/favicon.png">
+
+</head>
+<body>
+<div class="wrapper">
+    <!-- Sidebar Holder -->
+    <nav id="sidebar">
+        <div class="sidebar-header">
+            <h3>Callog IT</h3>
+        </div>
+
+        <ul id="sidebar-menu" class="list-unstyled components" data-children=".item">
+            <p class="mb-0"><strong>Yêu cầu Công việc</strong></p>
+            <!-- Button trigger modal -->
+            <button type="button" class="btn btn-danger ml-3" data-toggle="modal" data-target="#createForm">
+                + Thêm công việc
+            </button>
+
+            <li class="item" >
+                <a href="#myRequest" data-toggle="collapse" aria-expanded="false" data-parent="#sidebar-menu">Việc tôi yêu cầu</a>
+                <ul class="collapse list-unstyled" id="myRequest">
+                    <li><a href="my-request/all" data-navigo>All</a></li>
+                    <li><a href="my-requset/new" data-navigo>New</a></li>
+                    <li><a href="my-request/inprogress" data-navigo>Inprogress</a></li>
+                    <li><a href="my-request/resolved" data-navigo>Resolved</a></li>
+                    <li><a href="my-request/ood" data-navigo>Out Of Date</a></li>
+                </ul>
+            </li>
+            <li class="item">
+                <a href="#relatedWork" data-toggle="collapse" aria-expanded="false" data-parent="#sidebar-menu">Công việc liên quan</a>
+                <ul class="collapse list-unstyled" id="relatedWork">
+                    <li><a href="relation/all" data-navigo>All</a></li>
+                    <li><a href="relation/new" data-navigo>New</a></li>
+                    <li><a href="relation/inprogress" data-navigo>Inprogress</a></li>
+                    <li><a href="relation/resolved" data-navigo>Resolved</a></li>
+                    <li><a href="relation/ood" data-navigo>Out Of Date</a></li>
+                </ul>
+            </li>
+            <li class="item">
+                <a href="#myJob" data-toggle="collapse" aria-expanded="false" data-parent="#sidebar-menu">Việc tôi được giao</a>
+                <ul class="collapse list-unstyled" id="myJob">
+                    <li><a href="my-job/all" data-navigo>All</a></li>
+                    <li><a href="my-job/new" data-navigo>New</a></li>
+                    <li><a href="my-job/inprogress" data-navigo>Inprogress</a></li>
+                    <li><a href="my-job/feedback" data-navigo>Feedback</a></li>
+                    <li><a href="my-job/ood" data-navigo>Out Of Date</a></li>
+                </ul>
+            </li>
+            <li class="item" id="teamMenu">
+
+            </li>
+            <li class="item" id="itMenu">
+
+            </li>
+        </ul>
+    </nav>
+
+    <!-- Page Content Holder -->
+    <div id="content" class="container-fluid">
+
+        <nav class="navbar navbar-default">
+                <ul class="nav float-right justify-content-end">
+                    <li class="nav-item">
+                        <a class="nav-link active" href="#">Trang chủ</a>
+                    </li>
+                    <li class="nav-item">
+                        <a id="logout" class="nav-link" href="login.html">Đăng xuất</a>
+                    </li>
+                </ul>
+        </nav>
+        <div class="container-fluid" id="view">
+
+        </div>
+    </div>
+</div>
+<!-- Modal -->
+<div class="modal fade" id="createForm" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-xl" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Thêm yêu cầu</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div role="alert" id="flash">
+
+            </div>
+            <div class="modal-body">
+                <form class="my-3" id="request-form" novalidate>
+                    <div class="form-row">
+                        <div class="form-group col-12 mb-0">
+                            <label class="mb-0" for="input-nameJob" style="width: 100%">
+                                Tên công việc<i style="color: red">*</i>
+
+                            <input type="text" class="form-control" id="input-nameJob" placeholder="Tên công việc" name="ticket[subject]" style="width: 100%" required>
+                            <div class="invalid-feedback">
+                                Vui lòng nhập tên công việc
+                            </div>
+                            </label>
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group col-6 mb-0">
+                            <label class="mb-0" for="input-priority" style="width: 100%">
+                                Mức độ ưu tiên
+
+                            <select id="input-priority" class="form-control" name="ticket[priority]" style="width: 100%">
+                                <option value="1">Thấp</option>
+                                <option value="2" selected>Bình thường</option>
+                                <option value="3">Cao</option>
+                                <option value="4">Khẩn cấp</option>
+                            </select>
+                            </label>
+                        </div>
+                        <div class="form-group col-6 mb-0">
+                            <label class="mb-0" for="input-deadline" style="width: 100%">
+                                Ngày hết hạn<i style="color: red">*</i>
+
+                            <input type="date" class="form-control" placeholder="dd/mm/yyyy" id="input-deadline" name="ticket[deadline]" style="width: 100%" required>
+                            <div class="invalid-feedback">
+                                Vui lòng chọn ngày hết hạn
+                            </div>
+                            </label>
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group col-6 mb-0">
+                            <label  class="mb-0" for="input-team" style="width: 100%">
+                                Bộ phận IT<i style="color: red">*</i>
+
+                            <select id="input-team" class="form-control" name="ticket[team_id]" style="width: 100%" required>
+                                <option value="1">Hanoi - IT</option>
+                                <option value="2">Danang - IT</option>
+                            </select>
+                            <div class="invalid-feedback">
+                                Chọn bộ phận IT
+                            </div>
+                            </label>
+                        </div>
+                        <div class="form-group col-6 mb-0">
+                            <label class="mb-0" for="input-related" style="width: 100%">
+                                Người liên quan
+
+                            <select id="input-related" class="js-data-example-ajax" name="ticket[rela][]" multiple="multiple" style="width: 100%">
+                                <!--<option selected></option>-->
+                            </select>
+                            </label>
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group col-12 mb-0">
+                            <label class="mb-0" for="input-content" style="width: 100%">
+                                Nội dung<i style="color: red">*</i>
+
+                            <textarea class="form-control" rows="10" id="input-content" name="ticket[content]" required></textarea>
+                            <div class="invalid-feedback">
+                                Vui lòng nhập nội dung công việc
+                            </div>
+                            </label>
+                        </div>
+                    </div>
+                    <input class="btn btn-primary" type="submit" value="Gửi yêu cầu">
+                    <button type="button" class="btn btn-danger" data-dismiss="modal">Hủy bỏ</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Optional JavaScript -->
+<!-- jQuery first, then Popper.js, then Bootstrap JS -->
+<!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.3/umd/popper.min.js" integrity="sha384-vFJXuSJphROIrBnz7yo7oB41mKfc8JzQZiCq4NCceLEaO4IHwicKwpJf9c9IpFgh" crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js" integrity="sha384-alpBpkh1PFOepccYVYDB4do5UnbKysX5WZXm3XxPqe5iKTfUKjNkCk9SaVuEZflJ" crossorigin="anonymous"></script> -->
+
+<script src="js/jquery01.js"></script>
+<script src="js/popper01.js"></script>
+<script src="js/bootstrapjs01.js"></script>
+
+
+
+<!-- jQuery Custom Scroller CDN -->
+<!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/malihu-custom-scrollbar-plugin/3.1.5/jquery.mCustomScrollbar.concat.min.js"></script> -->
+<script src="js/jquery02.js"></script>
+
+<!-- Data table -->
+<!-- <script src="https://cdn.datatables.net/1.10.16/js/jquery.dataTables.min.js"></script>
+<script src="https://cdn.datatables.net/1.10.16/js/dataTables.bootstrap4.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.6-rc.0/js/select2.min.js"></script>
+<script src="http://malsup.github.com/jquery.form.js"></script> -->
+
+<script src="js/dataTable01.js"></script>
+<script src="js/dataTable02.js"></script>
+<script src="js/dataTable03.js"></script>
+<script src="js/dataTable04.js"></script>
+
+
+
+<script src="js/navigo.js"></script>
+
+<script src="js/app.js"></script>
+<script>
+    (function() {
+        'use strict';
+        window.addEventListener('load', function() {
+            var form = document.getElementById('request-form');
+            form.addEventListener('submit', function(event) {
+                if (form.checkValidity() === false) {
+                    event.preventDefault();
+                    event.stopPropagation();
+                }
+                form.classList.add('was-validated');
+            }, false);
+        }, false);
+    })();
+</script>
+</body>
+</html>

@@ -1,0 +1,21 @@
+tfoot {
+    display: table-header-group;
+}
+
+@media (min-width: 768px) {
+    .modal-xl {
+        width: 90%;
+        max-width:1200px;
+    }
+}
+
+p {
+    margin-bottom: 0.4rem;
+}
+
+h5 {
+    margin-bottom: 0;
+}
+tbody tr td:hover{
+    cursor: pointer;
+}

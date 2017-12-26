@@ -1,0 +1,177 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <title>CallogIT</title>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css" integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb" crossorigin="anonymous">
+    <!-- Scrollbar Custom CSS -->
+    <!--<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/malihu-custom-scrollbar-plugin/3.1.5/jquery.mCustomScrollbar.min.css">-->
+    <!-- Custom styles for this template -->
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.10.16/css/dataTables.bootstrap4.min.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.6-rc.0/css/select2.min.css" rel="stylesheet" />
+    <link href="css/simpleSidebar.css" rel="stylesheet">
+    <link href="css/custom.css" rel="stylesheet">
+    <link rel="shortcut icon" href="img/favicon.png">
+
+
+</head>
+<body>
+<div class="wrapper">
+    <!-- Sidebar Holder -->
+    <nav id="sidebar">
+        <div class="sidebar-header">
+            <h3>Callog IT</h3>
+        </div>
+
+        <ul id="sidebar-menu" class="list-unstyled components" data-children=".item">
+            <p class="mb-0"><strong>Request IT</strong></p>
+            <!-- Button trigger modal -->
+            <button type="button" class="btn btn-danger ml-3" data-toggle="modal" data-target="#createForm">
+                + Thêm công việc
+            </button>
+
+        </ul>
+    </nav>
+
+    <!-- Page Content Holder -->
+    <div id="content" class="container-fluid">
+        <nav class="navbar navbar-default">
+            <ul class="nav float-right justify-content-end">
+                <li class="nav-item">
+                    <a class="nav-link active" href="#">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="login.html">Logout</a>
+                </li>
+            </ul>
+        </nav>
+        <div class="container-fluid" id="view">
+            <div class="container-fluid">
+                <!-- day la thong tin chung -->
+
+                <div class="row">
+
+                    <div class="col-md-10" style="margin-bottom: 20px">
+
+                        <div id="div_subject">
+                            <span class="h3">Test</span>
+                        </div>
+                    </div>
+
+                    <div class="col-md-2" align="right">
+                        <button class="btn btn-primary" type="button" id="btn_edit">Chỉnh sửa</button>
+                    </div>
+
+
+
+                    <div class="col-md-6">
+                        <div id="div_detail_left">
+                            <table class="table table-striped">
+                                <tbody>
+                                <tr>
+                                    <td>Người yêu cầu</td>
+                                    <td id="nguoi_yeu_cau">PTA</td>
+                                </tr>
+                                <tr>
+                                    <td>Người thực hiện</td>
+                                    <td id="nguoi_thuc_hien">PTA</td>
+                                </tr>
+                                <tr>
+                                    <td>Mức độ ưu tiên</td>
+                                    <td id="muc_do_uu_tien">Bình thường</td>
+                                </tr>
+                                </tbody>
+                            </table>
+                        </div>
+
+                    </div>
+                    <div class="col-md-6">
+                        <div id="div_detail_right">
+                            <table class="table table-striped">
+                                <tbody>
+                                <tr>
+                                    <td>Ngày tạo</td>
+                                    <td id="ngay_tao">2011/04/20</td>
+                                </tr>
+                                <tr>
+                                    <td>Ngày hết hạn</td>
+                                    <td id="ngay_het_han">2011/04/25</td>
+                                </tr>
+                                <tr>
+                                    <td>Trạng thái</td>
+                                    <td id="trang_thai">New</td>
+                                </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- day la phan noi dung -->
+                <div>
+                    <div class="row mt-2">
+                        <div class="col-md-10 mb-2">
+                            <span class="h3">Nội dung</span>
+                            <hr>
+                        </div>
+
+                        <!-- noi dung -->
+                        <div class="col-md-12">
+                            <table class="table table-bordered">
+                                <tbody>
+                                <tr>
+                                    <h5>Tuấn Anh</h5>
+                                    <p>Xin chàofdsafsadfdsafsdafsdaf các bạn</p>
+                                </tr>
+                                <tr>
+                                    <h5>Tuấn Anh</h5>
+                                    <p>Xin chào các bạn</p>
+                                </tr><tr>
+                                    <h5>Tuấn Anh</h5>
+                                    <p>Xinfdasfadsfdsafsdafdsa chào các bạn</p>
+                                </tr><tr>
+                                    <h5>Tuấn Anh</h5>
+                                    <p>Xin chàfdsfdsafdsfdsagasdgfadsfasdfo các bạn</p>
+                                </tr><tr>
+                                    <h5>Tuấn Anh</h5>
+                                    <p>Xin chào cácfadsfdfdsafsadgsadgvsdavsdvdsacadscdscdsfdsgdsgdasafdsfa bạn</p>
+                                </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                        <!-- comment -->
+                        <div class="col-md-12">
+                            <span class="h3">Bình Luận</span>
+                        </div>
+                        <div class="col-md-12 mt-1">
+                            <textarea class="form-control" rows="5" id="comment"></textarea>
+                            <button class="btn btn-primary float-right mt-2" id="btn-gui-binh-luan">Gửi bình luận</button>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.3/umd/popper.min.js" integrity="sha384-vFJXuSJphROIrBnz7yo7oB41mKfc8JzQZiCq4NCceLEaO4IHwicKwpJf9c9IpFgh" crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js" integrity="sha384-alpBpkh1PFOepccYVYDB4do5UnbKysX5WZXm3XxPqe5iKTfUKjNkCk9SaVuEZflJ" crossorigin="anonymous"></script>
+<!-- jQuery Custom Scroller CDN -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/malihu-custom-scrollbar-plugin/3.1.5/jquery.mCustomScrollbar.concat.min.js"></script>
+<!-- Data table -->
+<script src="https://cdn.datatables.net/1.10.16/js/jquery.dataTables.min.js"></script>
+<script src="https://cdn.datatables.net/1.10.16/js/dataTables.bootstrap4.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.6-rc.0/js/select2.min.js"></script>
+<script src="//unpkg.com/navigo@6"></script>
+<script src="test.js"></script>
+<!--<script src="app.js"></script>-->
+
+</body>
+</html>
